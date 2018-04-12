@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Tarsier.Regedit {
+﻿namespace Tarsier.Regedit {
     public class RegConfig {
         private static RegistryControl reg = new RegistryControl();
         public static T Get<T>(string key) {
