@@ -29,6 +29,7 @@ namespace Password.Storage.Controllers {
             defaultTable = tableName.RemoveNonAlphaNumeric().ToLower();
             table = new SQLiteTable(tableName);
             table.AddColumn(new SQLiteColumn("ID", true));
+            table.AddColumn(new SQLiteColumn("Username", ColType.Text));
             table.AddColumn(new SQLiteColumn("PassKey", ColType.Text));
             table.AddColumn(new SQLiteColumn("Description", ColType.Text));
             table.AddColumn(new SQLiteColumn("Code", ColType.Text));
@@ -64,6 +65,7 @@ namespace Password.Storage.Controllers {
                 foreach(DataRow dr in dt.Rows) {
                     Credential cmd = new Credential() {
                         ID = dr["ID"].ToSafeInteger(),
+                        Username = dr["Username"].ToSafeString(),
                         Description = dr["Description"].ToSafeString(),
                         PassKey = dr["PassKey"].ToSafeString(),
                         Code = dr["Code"].ToSafeString()
@@ -73,11 +75,12 @@ namespace Password.Storage.Controllers {
             }
             return pwds;
         }
-        public void Add(Credential pwd) {
+        public void Add(Credential c) {
             Dictionary<string, object> data = new Dictionary<string, object>();
-            string code = pwd.Description.RemoveNonAlphaNumeric().ToLower();
-            data.Add("Description", pwd.Description);
-            data.Add("PassKey",  pwd.PassKey);
+            string code = c.Description.RemoveNonAlphaNumeric().ToLower();
+            data.Add("Description", c.Description);
+            data.Add("Username", c.Username);
+            data.Add("PassKey",  c.PassKey);
             data.Add("Code", code);
             if(sqlite.IsExist(defaultTable, "Code", code.ToStringType())) {
                 sqlite.Update(defaultTable, data, "Code", code);
@@ -93,12 +96,13 @@ namespace Password.Storage.Controllers {
            
             List<Credential> pwds = GetPasswords();
             if(pwds.Count > 0) {
-                foreach(Credential pwd in pwds) {
+                foreach(Credential c in pwds) {
                     int img = 1;
-                    ListViewItem item = new ListViewItem(pwd.ID.ToSafeString(), img);
+                    ListViewItem item = new ListViewItem(c.ID.ToSafeString(), img);
                     item.UseItemStyleForSubItems = false;
-                    item.SubItems.Add(pwd.Description);
-                    item.SubItems.Add(pwd.PassKey);
+                    item.SubItems.Add(c.Description);
+                    item.SubItems.Add(c.Username);
+                    item.SubItems.Add(c.PassKey);
                     item.SubItems[1].ForeColor = Color.DarkGreen;
                     if(list.InvokeRequired) {
                         list.Invoke((MethodInvoker)delegate () {

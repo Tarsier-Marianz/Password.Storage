@@ -51,6 +51,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(346, 21);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Field_KeyDown);
             // 
             // txtDescription
             // 
@@ -58,7 +59,8 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(346, 61);
-            this.txtDescription.TabIndex = 3;
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Field_KeyDown);
             // 
             // label2
             // 
@@ -76,7 +78,7 @@
             this.btnSave.Location = new System.Drawing.Point(276, 167);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
@@ -86,7 +88,7 @@
             this.btnCancel.Location = new System.Drawing.Point(357, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -100,7 +102,8 @@
             this.txtUsername.Location = new System.Drawing.Point(86, 17);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(346, 21);
-            this.txtUsername.TabIndex = 7;
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Field_KeyDown);
             // 
             // label3
             // 
@@ -132,7 +135,6 @@
             this.Name = "NewPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Password";
-            this.Load += new System.EventHandler(this.NewPasswordForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

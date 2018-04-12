@@ -53,13 +53,14 @@
             this.columnHeaderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imgListNos = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.imgListNos = new System.Windows.Forms.ImageList(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.tmr = new System.Windows.Forms.Timer(this.components);
+            this.columnHeaderUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -308,6 +309,7 @@
             this.listViewPasswords.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderId,
             this.columnHeaderDescription,
+            this.columnHeaderUsername,
             this.columnHeaderPassword});
             this.listViewPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewPasswords.FullRowSelect = true;
@@ -332,45 +334,9 @@
             // 
             // columnHeaderPassword
             // 
+            this.columnHeaderPassword.DisplayIndex = 2;
             this.columnHeaderPassword.Text = "Password";
             this.columnHeaderPassword.Width = 146;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.listViewPasswords);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.label3);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(621, 256);
-            this.splitContainer1.SplitterDistance = 467;
-            this.splitContainer1.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // imgListNos
             // 
@@ -399,6 +365,25 @@
             this.imgListNos.Images.SetKeyName(20, "notification-counter-20-plus.png");
             this.imgListNos.Images.SetKeyName(21, "notification-counter-42.png");
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.listViewPasswords);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Size = new System.Drawing.Size(621, 256);
+            this.splitContainer1.SplitterDistance = 467;
+            this.splitContainer1.TabIndex = 4;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -407,6 +392,24 @@
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // bgWorker
             // 
@@ -420,6 +423,12 @@
             // 
             this.tmr.Enabled = true;
             this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
+            // 
+            // columnHeaderUsername
+            // 
+            this.columnHeaderUsername.DisplayIndex = 3;
+            this.columnHeaderUsername.Text = "Username";
+            this.columnHeaderUsername.Width = 89;
             // 
             // PasswordForm
             // 
@@ -490,6 +499,7 @@
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker bgWorker;
         private System.Windows.Forms.Timer tmr;
+        private System.Windows.Forms.ColumnHeader columnHeaderUsername;
     }
 }
 

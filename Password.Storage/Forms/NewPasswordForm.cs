@@ -28,8 +28,14 @@ namespace Password.Storage.Forms {
             btnSave.Enabled = txtDescription.Text.Trim().Length > 5 && txtPassword.Text.Trim().Length > 2 && txtUsername.Text.Trim().Length > 1;
         }
 
-        private void NewPasswordForm_Load(object sender, EventArgs e) {
-
+        private void Field_KeyDown(object sender, KeyEventArgs e) {
+            if(e.KeyCode.Equals(Keys.Enter)) {
+                if(btnSave.Enabled) {
+                    btnSave.PerformClick();
+                }else {
+                    SendKeys.Send("{TAB}");
+                }
+            }
         }
     }
 }

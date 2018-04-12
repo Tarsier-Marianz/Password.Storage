@@ -5,6 +5,6 @@ using System.Text;
 
 namespace Password.Storage.Constant {
     public class Vars {
-        public const string PASSWORD_DB = @"passwords.db";
+        public const string PASSWORD_DB = @"Credentials.dll";
     }
 }
