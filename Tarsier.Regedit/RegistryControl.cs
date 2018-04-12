@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 
-namespace Tarsier.Regedit
-{
+namespace Tarsier.Regedit {
     public class RegistryControl {
 
         private string appKey = "SOFTWARE\\Marianz\\Password Storage";
@@ -19,41 +18,33 @@ namespace Tarsier.Regedit
         }
 
         public string Read(string KeyName) {
-            if(string.IsNullOrEmpty(KeyName)) {
-                return string.Empty;
-            }
-            subRegKey = rootRegKey.OpenSubKey(appKey);
-            if(subRegKey == null) {
-                return null;
-            } else {
-                try {
-                    return (string)subRegKey.GetValue(KeyName);
-                } catch {
-                    return null;
+            if(!string.IsNullOrEmpty(KeyName)) {
+                subRegKey = rootRegKey.OpenSubKey(appKey);
+                if(subRegKey != null) {
+                    try {
+                        return (string)subRegKey.GetValue(KeyName);
+                    } catch { }
                 }
             }
+            return string.Empty;
         }
 
         public bool Write(string KeyName, object Value) {
-            if(string.IsNullOrEmpty(KeyName)) {
-                return false;
+            if(!string.IsNullOrEmpty(KeyName)) {
+                try {
+                    subRegKey = rootRegKey.CreateSubKey(appKey);
+                    subRegKey.SetValue(KeyName, Value);
+                    return true;
+                } catch { }
             }
-            try {
-                subRegKey = rootRegKey.CreateSubKey(appKey);
-                subRegKey.SetValue(KeyName, Value);
-                return true;
-            } catch {
-                return false;
-            }
+            return false;
         }
 
         public bool Delete(string KeyName) {
             try {
                 subRegKey = rootRegKey.CreateSubKey(appKey);
-                if(subRegKey == null)
-                    return true;
-
-                subRegKey.DeleteValue(KeyName);
+                if(subRegKey != null)
+                    subRegKey.DeleteValue(KeyName);
                 return true;
             } catch {
                 return false;
