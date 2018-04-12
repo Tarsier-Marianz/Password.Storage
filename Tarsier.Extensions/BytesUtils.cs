@@ -25,7 +25,6 @@ namespace Tarsier.Extensions {
                     return ThreeNonZeroDigits(value / Math.Pow(1024, i)) + " " + suffixes[i];
                 }
             }
-
             return ThreeNonZeroDigits(value /
                 Math.Pow(1024, suffixes.Length - 1)) + " " + suffixes[suffixes.Length - 1];
         }
