@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Tarsier.Config {
+﻿namespace Tarsier.Config {
     public class Queries {
         public const string SELECT_TABLE = "SELECT * FROM {0}";
         public const string SELECT_TABLE_WHERE = "SELECT * FROM {0} WHERE {1} ";
