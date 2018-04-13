@@ -36,7 +36,7 @@ namespace Password.Storage.Controllers {
             sqlite.CreateTable(table);
         }
 
-        public bool ClearCommands() {
+        public bool ClearAll() {
             try {
                 if(sqlite.IsTableExist(defaultTable)) {
                     sqlite.DropTable(defaultTable);
@@ -57,7 +57,7 @@ namespace Password.Storage.Controllers {
             return sqlite.GetDataTable(defaultTable);
         }
 
-        public List<Credential> GetPasswords() {
+        public List<Credential> GetCredentials() {
             DataTable dt = sqlite.Select(string.Format(Queries.SELECT_TABLE_DESC, defaultTable, "ID"));
           
             List<Credential> pwds = new List<Credential>();
@@ -93,7 +93,7 @@ namespace Password.Storage.Controllers {
             sqlite.Delete(defaultTable, string.Format("Code ='{0}'", code));
         }
         public void Initialize(ListView list, bool hidePassword) {
-            List<Credential> pwds = GetPasswords();
+            List<Credential> pwds = GetCredentials();
             if(pwds.Count > 0) {
                 foreach(Credential c in pwds) {
                     string imgKey = string.Format("notification-counter-{0}.png", c.ID.ToString("D2"));
