@@ -2,7 +2,7 @@
 
 A very, very simple program to store credentials.  :D
 
-![Image1](Images/screenshot.png?raw=true "Tarsier.VSSource.Unbinder")
+![Image1](Images/screenshot.png?raw=true "Password Storage")
 
 # Credits
 ![PInvoke](Images/credits-pinvoke.jpg?raw=true "PInvoke.Net")
