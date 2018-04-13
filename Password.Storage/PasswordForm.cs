@@ -13,6 +13,9 @@ using System.Windows.Forms;
 namespace Password.Storage {
     public partial class PasswordForm : Form {
         private Credentials _pwds;
+
+        private bool _hidePassword = true;
+        private bool _encryptContent = true;
         public PasswordForm() {
             InitializeComponent();
         }
@@ -20,7 +23,7 @@ namespace Password.Storage {
         private void InitializePasswords() {
             _pwds = new Credentials(Vars.PASSWORD_DB);
             listViewPasswords.Items.Clear();
-            _pwds.Initialize(listViewPasswords);
+            _pwds.Initialize(listViewPasswords, _hidePassword);
         }
         private void Action(string tag) {
             switch(tag) {
@@ -33,6 +36,8 @@ namespace Password.Storage {
                     }
                     break;
                 case "REMOVE":
+                    break;
+                case "CLEAR":
                     break;
                 case "EDIT":
                     break;
@@ -117,5 +122,6 @@ namespace Password.Storage {
         private void tmr_Tick(object sender, EventArgs e) {
             
         }
+        
     }
 }

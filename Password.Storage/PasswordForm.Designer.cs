@@ -28,6 +28,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnCopy = new System.Windows.Forms.ToolStripButton();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -52,6 +54,7 @@
             this.listViewPasswords = new System.Windows.Forms.ListView();
             this.columnHeaderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgListNos = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -60,7 +63,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.tmr = new System.Windows.Forms.Timer(this.components);
-            this.columnHeaderUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuHidePwd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -86,6 +90,7 @@
             // 
             this.passwordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAdd,
+            this.menuClear,
             this.toolStripSeparator1,
             this.menuExit});
             this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
@@ -96,21 +101,30 @@
             // 
             this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
             this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(96, 22);
+            this.menuAdd.Size = new System.Drawing.Size(152, 22);
             this.menuAdd.Tag = "ADD";
             this.menuAdd.Text = "Add";
             this.menuAdd.Click += new System.EventHandler(this.Menus_Click);
             // 
+            // menuClear
+            // 
+            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
+            this.menuClear.Name = "menuClear";
+            this.menuClear.Size = new System.Drawing.Size(152, 22);
+            this.menuClear.Tag = "CLEAR";
+            this.menuClear.Text = "Clear";
+            this.menuClear.Click += new System.EventHandler(this.Menus_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(93, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // menuExit
             // 
             this.menuExit.Image = ((System.Drawing.Image)(resources.GetObject("menuExit.Image")));
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(96, 22);
+            this.menuExit.Size = new System.Drawing.Size(152, 22);
             this.menuExit.Tag = "EXIT";
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.Menus_Click);
@@ -118,6 +132,8 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuHidePwd,
+            this.toolStripSeparator3,
             this.menuToolbar,
             this.menuStatus});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
@@ -127,7 +143,7 @@
             // menuToolbar
             // 
             this.menuToolbar.Name = "menuToolbar";
-            this.menuToolbar.Size = new System.Drawing.Size(115, 22);
+            this.menuToolbar.Size = new System.Drawing.Size(152, 22);
             this.menuToolbar.Tag = "TOOLBAR";
             this.menuToolbar.Text = "Toolbar";
             this.menuToolbar.Click += new System.EventHandler(this.Menus_Click);
@@ -135,7 +151,7 @@
             // menuStatus
             // 
             this.menuStatus.Name = "menuStatus";
-            this.menuStatus.Size = new System.Drawing.Size(115, 22);
+            this.menuStatus.Size = new System.Drawing.Size(152, 22);
             this.menuStatus.Tag = "STATUS";
             this.menuStatus.Text = "Status";
             this.menuStatus.Click += new System.EventHandler(this.Menus_Click);
@@ -175,6 +191,7 @@
             this.btnEdit,
             this.btnCopy,
             this.btnRefresh,
+            this.btnClear,
             this.toolStripSeparator2,
             this.btnSettings,
             this.toolStripLabel1,
@@ -243,6 +260,17 @@
             this.btnRefresh.Tag = "RELOAD";
             this.btnRefresh.Text = "Reload Password List";
             this.btnRefresh.Click += new System.EventHandler(this.Buttons_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(23, 22);
+            this.btnClear.Tag = "CLEAR";
+            this.btnClear.Text = "Clear all credentials";
+            this.btnClear.Click += new System.EventHandler(this.Buttons_Click);
             // 
             // toolStripSeparator2
             // 
@@ -331,6 +359,12 @@
             // 
             this.columnHeaderDescription.Text = "Description";
             this.columnHeaderDescription.Width = 162;
+            // 
+            // columnHeaderUsername
+            // 
+            this.columnHeaderUsername.DisplayIndex = 3;
+            this.columnHeaderUsername.Text = "Username";
+            this.columnHeaderUsername.Width = 89;
             // 
             // columnHeaderPassword
             // 
@@ -424,11 +458,17 @@
             this.tmr.Enabled = true;
             this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
             // 
-            // columnHeaderUsername
+            // menuHidePwd
             // 
-            this.columnHeaderUsername.DisplayIndex = 3;
-            this.columnHeaderUsername.Text = "Username";
-            this.columnHeaderUsername.Width = 89;
+            this.menuHidePwd.Name = "menuHidePwd";
+            this.menuHidePwd.Size = new System.Drawing.Size(152, 22);
+            this.menuHidePwd.Tag = "HIDEPWD";
+            this.menuHidePwd.Text = "Hide Password";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // PasswordForm
             // 
@@ -500,6 +540,10 @@
         private System.ComponentModel.BackgroundWorker bgWorker;
         private System.Windows.Forms.Timer tmr;
         private System.Windows.Forms.ColumnHeader columnHeaderUsername;
+        private System.Windows.Forms.ToolStripButton btnClear;
+        private System.Windows.Forms.ToolStripMenuItem menuClear;
+        private System.Windows.Forms.ToolStripMenuItem menuHidePwd;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
