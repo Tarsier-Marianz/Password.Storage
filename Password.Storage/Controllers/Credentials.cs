@@ -20,7 +20,7 @@ namespace Password.Storage.Controllers {
             set { defaultTable = value; }
         }
 
-        public Credentials(string filename) {
+        public Credentials(string filename, bool encrypted = true) {
             sqlite = new SQLiteHelper(filename);
             CreateTable(defaultTable);
         }
@@ -92,7 +92,7 @@ namespace Password.Storage.Controllers {
         public void Delete(string code) {
             sqlite.Delete(defaultTable, string.Format("Code ='{0}'", code));
         }
-        public void Initialize(ListView list) {
+        public void Initialize(ListView list, bool hidePassword) {
             List<Credential> pwds = GetPasswords();
             if(pwds.Count > 0) {
                 foreach(Credential c in pwds) {
@@ -101,8 +101,15 @@ namespace Password.Storage.Controllers {
                     item.UseItemStyleForSubItems = false;
                     item.SubItems.Add(c.Description);
                     item.SubItems.Add(c.Username);
-                    item.SubItems.Add(c.PassKey);
+                    if(hidePassword) {
+                        item.SubItems.Add("*********");
+                        item.SubItems[3].ForeColor = Color.Red;
+                    } else {
+                        item.SubItems.Add(c.PassKey);
+                        item.SubItems[3].ForeColor = Color.DarkBlue;
+                    }
                     item.SubItems[1].ForeColor = Color.DarkGreen;
+                    item.SubItems[2].Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
                     if(list.InvokeRequired) {
                         list.Invoke((MethodInvoker)delegate () {
                             list.Items.Add(item);
