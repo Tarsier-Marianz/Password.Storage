@@ -9,11 +9,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Tarsier.Regedit;
 
 namespace Password.Storage {
     public partial class PasswordForm : Form {
         private Credentials _pwds;
 
+        private bool _showPanel = false;
         private bool _hidePassword = true;
         private bool _encryptContent = true;
         public PasswordForm() {
@@ -24,6 +26,12 @@ namespace Password.Storage {
             _pwds = new Credentials(Vars.PASSWORD_DB);
             listViewPasswords.Items.Clear();
             _pwds.Initialize(listViewPasswords, _hidePassword);
+        }
+
+        private void InitializeSettings() {
+            RegConfig.Set<bool>("Encrypt", _encryptContent);
+            _hidePassword = RegConfig.Get<bool>("HidePassword");
+            _showPanel = RegConfig.Get<bool>("ShowPanel");
         }
         private void Action(string tag) {
             switch(tag) {
@@ -116,6 +124,7 @@ namespace Password.Storage {
         }
 
         private void PasswordForm_Load(object sender, EventArgs e) {
+            InitializeSettings();
             InitializePasswords();
         }
 
