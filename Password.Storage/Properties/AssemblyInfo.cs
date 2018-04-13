@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Password.Storage")]
+[assembly: AssemblyTitle("Password Storage")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tarsier Solutions")]
-[assembly: AssemblyProduct("Password.Storage")]
+[assembly: AssemblyProduct("Password Storage")]
 [assembly: AssemblyCopyright("Copyright © Tarsier 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
