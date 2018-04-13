@@ -57,6 +57,26 @@ namespace Password.Storage.Controllers {
             return sqlite.GetDataTable(defaultTable);
         }
 
+        public Credential GetCredential(string id) {
+            if(string.IsNullOrEmpty(id)) {
+                return null;
+            }
+            DataTable dt = sqlite.Select(string.Format(Queries.SELECT_TABLE_WHERE, defaultTable, "ID=" + id));
+            Credential c = new Credential();
+            if(dt != null) {
+                foreach(DataRow dr in dt.Rows) {
+                    c = new Credential() {
+                        ID = dr["ID"].ToSafeInteger(),
+                        Username = dr["Username"].ToSafeString(),
+                        Description = dr["Description"].ToSafeString(),
+                        PassKey = dr["PassKey"].ToSafeString(),
+                        Code = dr["Code"].ToSafeString()
+                    };
+                }
+            }
+            return c;
+        }
+
         public List<Credential> GetCredentials() {
             DataTable dt = sqlite.Select(string.Format(Queries.SELECT_TABLE_DESC, defaultTable, "ID"));
           
@@ -77,10 +97,10 @@ namespace Password.Storage.Controllers {
         }
         public void Add(Credential c) {
             Dictionary<string, object> data = new Dictionary<string, object>();
-            string code = c.Description.RemoveNonAlphaNumeric().ToLower();
+            string code = (c.Username + c.Description).RemoveNonAlphaNumeric().ToLower();
             data.Add("Description", c.Description);
             data.Add("Username", c.Username);
-            data.Add("PassKey",  c.PassKey);
+            data.Add("PassKey", c.PassKey);
             data.Add("Code", code);
             if(sqlite.IsExist(defaultTable, "Code", code.ToStringType())) {
                 sqlite.Update(defaultTable, data, "Code", code);
@@ -88,16 +108,31 @@ namespace Password.Storage.Controllers {
                 sqlite.Insert(defaultTable, data);
             }
         }
+        public void Update(Credential c, string id) {
+            if(!string.IsNullOrEmpty(id)) {
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                string code = (c.Username + c.Description).RemoveNonAlphaNumeric().ToLower();
+                data.Add("Description", c.Description);
+                data.Add("Username", c.Username);
+                data.Add("PassKey", c.PassKey);
+                data.Add("Code", code);
+                sqlite.Update(defaultTable, data, "ID", id);
+            }
+        }
 
-        public void Delete(string code) {
+        public void DeleteCode(string code) {
             sqlite.Delete(defaultTable, string.Format("Code ='{0}'", code));
         }
+        public void Delete(string id) {
+            sqlite.Delete(defaultTable, string.Format("ID ={0}", id));
+        }
+
         public void Initialize(ListView list, bool hidePassword) {
             List<Credential> pwds = GetCredentials();
             if(pwds.Count > 0) {
                 foreach(Credential c in pwds) {
                     string imgKey = string.Format("notification-counter-{0}.png", c.ID.ToString("D2"));
-                    ListViewItem item = new ListViewItem("", imgKey);
+                    ListViewItem item = new ListViewItem(c.ID.ToSafeString(), imgKey);
                     item.UseItemStyleForSubItems = false;
                     item.SubItems.Add(c.Description);
                     item.SubItems.Add(c.Username);
@@ -108,6 +143,7 @@ namespace Password.Storage.Controllers {
                         item.SubItems.Add(c.PassKey);
                         item.SubItems[3].ForeColor = Color.DarkBlue;
                     }
+                    item.SubItems[0].ForeColor = Color.White;
                     item.SubItems[1].ForeColor = Color.DarkGreen;
                     item.SubItems[2].Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
                     if(list.InvokeRequired) {
