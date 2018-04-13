@@ -1,4 +1,5 @@
-﻿using Password.Storage.Models;
+﻿using Password.Storage.Controllers;
+using Password.Storage.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +11,26 @@ using System.Windows.Forms;
 
 namespace Password.Storage.Forms {
     public partial class NewPasswordForm : Form {
-        public NewPasswordForm() {
+        private Credentials _cred;
+        public NewPasswordForm(Credentials credential,string id) {
             InitializeComponent();
+            InitializeCredential(credential, id);
         }
 
+        private void InitializeCredential(Credentials credential, string id) {
+            if(string.IsNullOrEmpty(id)) {
+                Text = "Add Credential";
+                btnSave.Text = "Save";
+            } else {
+                Text = "Edit Credential";
+                btnSave.Text = "Update";
+                _cred = credential;
+                Credential c = _cred.GetCredential(id);
+                txtUsername.Text = c.Username;
+                txtPassword.Text = c.PassKey;
+                txtDescription.Text = c.Description;
+            }
+        }
         public Credential Credential {
             get {
                 return new Credential() {
