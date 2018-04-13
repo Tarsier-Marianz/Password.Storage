@@ -43,7 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPageLicense = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtLicense = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -100,7 +100,7 @@
             this.lblDescription.ForeColor = System.Drawing.Color.Gray;
             this.lblDescription.Location = new System.Drawing.Point(153, 79);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(226, 61);
+            this.lblDescription.Size = new System.Drawing.Size(226, 33);
             this.lblDescription.TabIndex = 11;
             this.lblDescription.Text = "label3";
             // 
@@ -251,7 +251,7 @@
             // 
             // tabPageLicense
             // 
-            this.tabPageLicense.Controls.Add(this.richTextBox1);
+            this.tabPageLicense.Controls.Add(this.txtLicense);
             this.tabPageLicense.Location = new System.Drawing.Point(4, 22);
             this.tabPageLicense.Name = "tabPageLicense";
             this.tabPageLicense.Padding = new System.Windows.Forms.Padding(3);
@@ -260,17 +260,17 @@
             this.tabPageLicense.Text = "License";
             this.tabPageLicense.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // txtLicense
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(379, 168);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.txtLicense.BackColor = System.Drawing.Color.White;
+            this.txtLicense.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLicense.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLicense.Location = new System.Drawing.Point(3, 3);
+            this.txtLicense.Name = "txtLicense";
+            this.txtLicense.ReadOnly = true;
+            this.txtLicense.Size = new System.Drawing.Size(379, 168);
+            this.txtLicense.TabIndex = 0;
+            this.txtLicense.Text = "";
             // 
             // label6
             // 
@@ -376,7 +376,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPageLicense;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtLicense;
         private System.Windows.Forms.ColumnHeader AsmNameColumn;
         private System.Windows.Forms.ColumnHeader VersionColumn;
         private System.Windows.Forms.Label label8;

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Password.Storage.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace Password.Storage.Forms {
             lblVersion.Text = string.Format("Version {0} (Release Build {1})", _info.AssemblyFileVersion, _info.AssemblyVersion);
             lblCopyright.Text = _info.AssemblyCopyright;
             lblDescription.Text = _info.AssemblyDescription;
+            txtLicense.Text = LicenseViewer.GetContent();
             DisplayLibraries();
 
         }
