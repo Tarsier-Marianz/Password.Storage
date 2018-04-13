@@ -8,6 +8,7 @@ using Tarsier.Extensions;
 using Password.Storage.Models;
 using System.Windows.Forms;
 using System.Drawing;
+using Tarsier.Security;
 
 namespace Password.Storage.Controllers {
     public class Credentials {
@@ -65,13 +66,15 @@ namespace Password.Storage.Controllers {
             Credential c = new Credential();
             if(dt != null) {
                 foreach(DataRow dr in dt.Rows) {
-                    c = new Credential() {
-                        ID = dr["ID"].ToSafeInteger(),
-                        Username = dr["Username"].ToSafeString(),
-                        Description = dr["Description"].ToSafeString(),
-                        PassKey = dr["PassKey"].ToSafeString(),
-                        Code = dr["Code"].ToSafeString()
-                    };
+                    try {
+                        c = new Credential() {
+                            ID = dr["ID"].ToSafeInteger(),
+                            Username = SimpleEncryption.Decrypt(dr["Username"].ToSafeString()),
+                            Description = SimpleEncryption.Decrypt(dr["Description"].ToSafeString()),
+                            PassKey = SimpleEncryption.Decrypt(dr["PassKey"].ToSafeString()),
+                            Code = dr["Code"].ToSafeString()
+                        };
+                    } catch { /*@Ignore exception*/}
                 }
             }
             return c;
@@ -85,9 +88,9 @@ namespace Password.Storage.Controllers {
                 foreach(DataRow dr in dt.Rows) {
                     Credential cmd = new Credential() {
                         ID = dr["ID"].ToSafeInteger(),
-                        Username = dr["Username"].ToSafeString(),
-                        Description = dr["Description"].ToSafeString(),
-                        PassKey = dr["PassKey"].ToSafeString(),
+                        Username = SimpleEncryption.Decrypt(dr["Username"].ToSafeString()),
+                        Description = SimpleEncryption.Decrypt(dr["Description"].ToSafeString()),
+                        PassKey = SimpleEncryption.Decrypt(dr["PassKey"].ToSafeString()),
                         Code = dr["Code"].ToSafeString()
                     };
                     pwds.Add(cmd);
@@ -98,9 +101,9 @@ namespace Password.Storage.Controllers {
         public void Add(Credential c) {
             Dictionary<string, object> data = new Dictionary<string, object>();
             string code = (c.Username + c.Description).RemoveNonAlphaNumeric().ToLower();
-            data.Add("Description", c.Description);
-            data.Add("Username", c.Username);
-            data.Add("PassKey", c.PassKey);
+            data.Add("Description", SimpleEncryption.Encrypt( c.Description));
+            data.Add("Username", SimpleEncryption.Encrypt(c.Username));
+            data.Add("PassKey", SimpleEncryption.Encrypt(c.PassKey));
             data.Add("Code", code);
             if(sqlite.IsExist(defaultTable, "Code", code.ToStringType())) {
                 sqlite.Update(defaultTable, data, "Code", code);
@@ -112,9 +115,9 @@ namespace Password.Storage.Controllers {
             if(!string.IsNullOrEmpty(id)) {
                 Dictionary<string, object> data = new Dictionary<string, object>();
                 string code = (c.Username + c.Description).RemoveNonAlphaNumeric().ToLower();
-                data.Add("Description", c.Description);
-                data.Add("Username", c.Username);
-                data.Add("PassKey", c.PassKey);
+                data.Add("Description", SimpleEncryption.Encrypt(c.Description));
+                data.Add("Username", SimpleEncryption.Encrypt(c.Username));
+                data.Add("PassKey", SimpleEncryption.Encrypt(c.PassKey));
                 data.Add("Code", code);
                 sqlite.Update(defaultTable, data, "ID", id);
             }
