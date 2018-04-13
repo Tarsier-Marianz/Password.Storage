@@ -1,11 +1,13 @@
 ﻿using Password.Storage.Constant;
 using Password.Storage.Controllers;
 using Password.Storage.Forms;
+using Password.Storage.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -147,7 +149,7 @@ namespace Password.Storage {
                 if(tbtn.Tag != null) {
                     Action(tbtn.Tag.ToString());
                 }
-            }else {
+            } else {
                 Button btn = sender as Button;
                 if(btn != null) {
                     if(btn.Tag != null) {
@@ -156,6 +158,7 @@ namespace Password.Storage {
                 }
             }
         }
+
         private void Buttons_MouseHover(object sender, EventArgs e) {
             ToolStripButton tbtn = sender as ToolStripButton;
             if(tbtn != null) {
@@ -163,6 +166,7 @@ namespace Password.Storage {
                 lblStatus.Text = tbtn.Text;
             }
         }
+
         private void Buttons_MouseLeave(object sender, EventArgs e) {
             _isHover = false;
         }
@@ -208,6 +212,24 @@ namespace Password.Storage {
             }
         }
 
-        
+        private void listViewPasswords_DrawSubItem(object sender, DrawListViewSubItemEventArgs e) {
+            if(e.Header != this.columnHeaderPassword) {
+                e.DrawDefault = true;
+                return;
+            }
+            if((e.ItemState & ListViewItemStates.Selected) == 0) {
+                e.DrawBackground();
+            }
+
+            Image lockImg = Resources._lock;
+            e.DrawDefault = false;
+            //e.DrawBackground();
+            e.Graphics.DrawImage(lockImg, e.SubItem.Bounds.Location);
+            e.Graphics.DrawString(e.SubItem.Text, e.SubItem.Font, new SolidBrush(e.SubItem.ForeColor), (e.SubItem.Bounds.Location.X + lockImg.Width), e.SubItem.Bounds.Location.Y);
+        }
+
+        private void listViewPasswords_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e) {
+            e.DrawDefault = true;
+        }
     }
 }

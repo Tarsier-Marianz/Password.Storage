@@ -27,30 +27,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHidePwd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuToolbar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPwd = new System.Windows.Forms.ToolStrip();
-            this.btnAdd = new System.Windows.Forms.ToolStripButton();
-            this.btnRemove = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.btnHelp = new System.Windows.Forms.ToolStripButton();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.statusStripPwd = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.listViewPasswords = new System.Windows.Forms.ListView();
@@ -60,16 +46,30 @@
             this.columnHeaderPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgListNos = new System.Windows.Forms.ImageList(this.components);
             this.splitContainerPwd = new System.Windows.Forms.SplitContainer();
-            this.btnCopyPassword = new System.Windows.Forms.Button();
-            this.btnCopyUsername = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCopyPassword = new System.Windows.Forms.Button();
+            this.btnCopyUsername = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.ToolStripButton();
+            this.btnRemove = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnCopy = new System.Windows.Forms.ToolStripButton();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
+            this.btnSettings = new System.Windows.Forms.ToolStripButton();
+            this.btnHelp = new System.Windows.Forms.ToolStripButton();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripPwd.SuspendLayout();
             this.statusStripPwd.SuspendLayout();
@@ -102,37 +102,10 @@
             this.passwordToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.passwordToolStripMenuItem.Text = "Credential";
             // 
-            // menuAdd
-            // 
-            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
-            this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(152, 22);
-            this.menuAdd.Tag = "ADD";
-            this.menuAdd.Text = "Add";
-            this.menuAdd.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuClear
-            // 
-            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
-            this.menuClear.Name = "menuClear";
-            this.menuClear.Size = new System.Drawing.Size(152, 22);
-            this.menuClear.Tag = "CLEAR";
-            this.menuClear.Text = "Clear";
-            this.menuClear.Click += new System.EventHandler(this.Menus_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // menuExit
-            // 
-            this.menuExit.Image = ((System.Drawing.Image)(resources.GetObject("menuExit.Image")));
-            this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(152, 22);
-            this.menuExit.Tag = "EXIT";
-            this.menuExit.Text = "Exit";
-            this.menuExit.Click += new System.EventHandler(this.Menus_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(98, 6);
             // 
             // viewToolStripMenuItem
             // 
@@ -186,24 +159,6 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // menuHelp
-            // 
-            this.menuHelp.Image = ((System.Drawing.Image)(resources.GetObject("menuHelp.Image")));
-            this.menuHelp.Name = "menuHelp";
-            this.menuHelp.Size = new System.Drawing.Size(145, 22);
-            this.menuHelp.Tag = "HELP";
-            this.menuHelp.Text = "Help Content";
-            this.menuHelp.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuAbout
-            // 
-            this.menuAbout.Image = ((System.Drawing.Image)(resources.GetObject("menuAbout.Image")));
-            this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(145, 22);
-            this.menuAbout.Tag = "ABOUT";
-            this.menuAbout.Text = "About";
-            this.menuAbout.Click += new System.EventHandler(this.Menus_Click);
-            // 
             // toolStripPwd
             // 
             this.toolStripPwd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -223,6 +178,232 @@
             this.toolStripPwd.Size = new System.Drawing.Size(621, 25);
             this.toolStripPwd.TabIndex = 1;
             this.toolStripPwd.Text = "toolStrip1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(28, 22);
+            this.toolStripLabel1.Text = "       ";
+            // 
+            // statusStripPwd
+            // 
+            this.statusStripPwd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
+            this.statusStripPwd.Location = new System.Drawing.Point(0, 305);
+            this.statusStripPwd.Name = "statusStripPwd";
+            this.statusStripPwd.Size = new System.Drawing.Size(621, 22);
+            this.statusStripPwd.TabIndex = 2;
+            this.statusStripPwd.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.Text = "Ready...";
+            // 
+            // listViewPasswords
+            // 
+            this.listViewPasswords.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderId,
+            this.columnHeaderDescription,
+            this.columnHeaderUsername,
+            this.columnHeaderPassword});
+            this.listViewPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewPasswords.FullRowSelect = true;
+            this.listViewPasswords.GridLines = true;
+            this.listViewPasswords.Location = new System.Drawing.Point(0, 0);
+            this.listViewPasswords.MultiSelect = false;
+            this.listViewPasswords.Name = "listViewPasswords";
+            this.listViewPasswords.OwnerDraw = true;
+            this.listViewPasswords.Size = new System.Drawing.Size(441, 256);
+            this.listViewPasswords.SmallImageList = this.imgListNos;
+            this.listViewPasswords.TabIndex = 3;
+            this.listViewPasswords.UseCompatibleStateImageBehavior = false;
+            this.listViewPasswords.View = System.Windows.Forms.View.Details;
+            this.listViewPasswords.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listViewPasswords_DrawColumnHeader);
+            this.listViewPasswords.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.listViewPasswords_DrawSubItem);
+            this.listViewPasswords.SelectedIndexChanged += new System.EventHandler(this.listViewPasswords_SelectedIndexChanged);
+            // 
+            // columnHeaderId
+            // 
+            this.columnHeaderId.Text = "ID";
+            this.columnHeaderId.Width = 40;
+            // 
+            // columnHeaderDescription
+            // 
+            this.columnHeaderDescription.Text = "Description";
+            this.columnHeaderDescription.Width = 162;
+            // 
+            // columnHeaderUsername
+            // 
+            this.columnHeaderUsername.DisplayIndex = 3;
+            this.columnHeaderUsername.Text = "Username";
+            this.columnHeaderUsername.Width = 89;
+            // 
+            // columnHeaderPassword
+            // 
+            this.columnHeaderPassword.DisplayIndex = 2;
+            this.columnHeaderPassword.Text = "Password";
+            this.columnHeaderPassword.Width = 123;
+            // 
+            // imgListNos
+            // 
+            this.imgListNos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListNos.ImageStream")));
+            this.imgListNos.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgListNos.Images.SetKeyName(0, "notification-counter-01.png");
+            this.imgListNos.Images.SetKeyName(1, "notification-counter-02.png");
+            this.imgListNos.Images.SetKeyName(2, "notification-counter-03.png");
+            this.imgListNos.Images.SetKeyName(3, "notification-counter-04.png");
+            this.imgListNos.Images.SetKeyName(4, "notification-counter-05.png");
+            this.imgListNos.Images.SetKeyName(5, "notification-counter-06.png");
+            this.imgListNos.Images.SetKeyName(6, "notification-counter-07.png");
+            this.imgListNos.Images.SetKeyName(7, "notification-counter-08.png");
+            this.imgListNos.Images.SetKeyName(8, "notification-counter-09.png");
+            this.imgListNos.Images.SetKeyName(9, "notification-counter-10.png");
+            this.imgListNos.Images.SetKeyName(10, "notification-counter-11.png");
+            this.imgListNos.Images.SetKeyName(11, "notification-counter-12.png");
+            this.imgListNos.Images.SetKeyName(12, "notification-counter-13.png");
+            this.imgListNos.Images.SetKeyName(13, "notification-counter-14.png");
+            this.imgListNos.Images.SetKeyName(14, "notification-counter-15.png");
+            this.imgListNos.Images.SetKeyName(15, "notification-counter-16.png");
+            this.imgListNos.Images.SetKeyName(16, "notification-counter-17.png");
+            this.imgListNos.Images.SetKeyName(17, "notification-counter-18.png");
+            this.imgListNos.Images.SetKeyName(18, "notification-counter-19.png");
+            this.imgListNos.Images.SetKeyName(19, "notification-counter-20.png");
+            this.imgListNos.Images.SetKeyName(20, "notification-counter-20-plus.png");
+            this.imgListNos.Images.SetKeyName(21, "notification-counter-42.png");
+            // 
+            // splitContainerPwd
+            // 
+            this.splitContainerPwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerPwd.Location = new System.Drawing.Point(0, 49);
+            this.splitContainerPwd.Name = "splitContainerPwd";
+            // 
+            // splitContainerPwd.Panel1
+            // 
+            this.splitContainerPwd.Panel1.Controls.Add(this.listViewPasswords);
+            // 
+            // splitContainerPwd.Panel2
+            // 
+            this.splitContainerPwd.Panel2.Controls.Add(this.btnCopyPassword);
+            this.splitContainerPwd.Panel2.Controls.Add(this.btnCopyUsername);
+            this.splitContainerPwd.Panel2.Controls.Add(this.label2);
+            this.splitContainerPwd.Panel2.Controls.Add(this.label5);
+            this.splitContainerPwd.Panel2.Controls.Add(this.label6);
+            this.splitContainerPwd.Panel2.Controls.Add(this.lblDescription);
+            this.splitContainerPwd.Panel2.Controls.Add(this.lblPassword);
+            this.splitContainerPwd.Panel2.Controls.Add(this.lblUsername);
+            this.splitContainerPwd.Panel2MinSize = 175;
+            this.splitContainerPwd.Size = new System.Drawing.Size(621, 256);
+            this.splitContainerPwd.SplitterDistance = 441;
+            this.splitContainerPwd.TabIndex = 4;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDescription.AutoEllipsis = true;
+            this.lblDescription.Location = new System.Drawing.Point(28, 150);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(134, 52);
+            this.lblDescription.TabIndex = 5;
+            this.lblDescription.Text = "---";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPassword.AutoEllipsis = true;
+            this.lblPassword.Location = new System.Drawing.Point(28, 93);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(136, 22);
+            this.lblPassword.TabIndex = 3;
+            this.lblPassword.Text = "***";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoEllipsis = true;
+            this.lblUsername.Location = new System.Drawing.Point(28, 32);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(136, 22);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "...";
+            // 
+            // tmr
+            // 
+            this.tmr.Enabled = true;
+            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
+            // 
+            // btnCopyPassword
+            // 
+            this.btnCopyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCopyPassword.FlatAppearance.BorderSize = 0;
+            this.btnCopyPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyPassword.Image")));
+            this.btnCopyPassword.Location = new System.Drawing.Point(144, 64);
+            this.btnCopyPassword.Name = "btnCopyPassword";
+            this.btnCopyPassword.Size = new System.Drawing.Size(21, 21);
+            this.btnCopyPassword.TabIndex = 11;
+            this.btnCopyPassword.Tag = "COPY_PWD";
+            this.btnCopyPassword.UseVisualStyleBackColor = true;
+            this.btnCopyPassword.Click += new System.EventHandler(this.Buttons_Click);
+            // 
+            // btnCopyUsername
+            // 
+            this.btnCopyUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCopyUsername.FlatAppearance.BorderSize = 0;
+            this.btnCopyUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyUsername.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyUsername.Image")));
+            this.btnCopyUsername.Location = new System.Drawing.Point(144, 11);
+            this.btnCopyUsername.Name = "btnCopyUsername";
+            this.btnCopyUsername.Size = new System.Drawing.Size(21, 21);
+            this.btnCopyUsername.TabIndex = 10;
+            this.btnCopyUsername.Tag = "COPY_USER";
+            this.btnCopyUsername.UseVisualStyleBackColor = true;
+            this.btnCopyUsername.Click += new System.EventHandler(this.Buttons_Click);
+            // 
+            // label2
+            // 
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(6, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 19);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Username:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(6, 128);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Description:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(6, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 19);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Password:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnAdd
             // 
@@ -305,11 +486,6 @@
             this.btnClear.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
             this.btnClear.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // btnSettings
             // 
             this.btnSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -322,12 +498,6 @@
             this.btnSettings.Click += new System.EventHandler(this.Buttons_Click);
             this.btnSettings.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
             this.btnSettings.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(28, 22);
-            this.toolStripLabel1.Text = "       ";
             // 
             // btnHelp
             // 
@@ -355,217 +525,50 @@
             this.btnExit.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
             this.btnExit.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
             // 
-            // statusStripPwd
+            // menuAdd
             // 
-            this.statusStripPwd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus});
-            this.statusStripPwd.Location = new System.Drawing.Point(0, 305);
-            this.statusStripPwd.Name = "statusStripPwd";
-            this.statusStripPwd.Size = new System.Drawing.Size(621, 22);
-            this.statusStripPwd.TabIndex = 2;
-            this.statusStripPwd.Text = "statusStrip1";
+            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.Size = new System.Drawing.Size(101, 22);
+            this.menuAdd.Tag = "ADD";
+            this.menuAdd.Text = "Add";
+            this.menuAdd.Click += new System.EventHandler(this.Menus_Click);
             // 
-            // lblStatus
+            // menuClear
             // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(48, 17);
-            this.lblStatus.Text = "Ready...";
+            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
+            this.menuClear.Name = "menuClear";
+            this.menuClear.Size = new System.Drawing.Size(101, 22);
+            this.menuClear.Tag = "CLEAR";
+            this.menuClear.Text = "Clear";
+            this.menuClear.Click += new System.EventHandler(this.Menus_Click);
             // 
-            // listViewPasswords
+            // menuExit
             // 
-            this.listViewPasswords.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderId,
-            this.columnHeaderDescription,
-            this.columnHeaderUsername,
-            this.columnHeaderPassword});
-            this.listViewPasswords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewPasswords.FullRowSelect = true;
-            this.listViewPasswords.GridLines = true;
-            this.listViewPasswords.Location = new System.Drawing.Point(0, 0);
-            this.listViewPasswords.MultiSelect = false;
-            this.listViewPasswords.Name = "listViewPasswords";
-            this.listViewPasswords.Size = new System.Drawing.Size(441, 256);
-            this.listViewPasswords.SmallImageList = this.imgListNos;
-            this.listViewPasswords.TabIndex = 3;
-            this.listViewPasswords.UseCompatibleStateImageBehavior = false;
-            this.listViewPasswords.View = System.Windows.Forms.View.Details;
-            this.listViewPasswords.SelectedIndexChanged += new System.EventHandler(this.listViewPasswords_SelectedIndexChanged);
+            this.menuExit.Image = ((System.Drawing.Image)(resources.GetObject("menuExit.Image")));
+            this.menuExit.Name = "menuExit";
+            this.menuExit.Size = new System.Drawing.Size(101, 22);
+            this.menuExit.Tag = "EXIT";
+            this.menuExit.Text = "Exit";
+            this.menuExit.Click += new System.EventHandler(this.Menus_Click);
             // 
-            // columnHeaderId
+            // menuHelp
             // 
-            this.columnHeaderId.Text = "ID";
-            this.columnHeaderId.Width = 40;
+            this.menuHelp.Image = ((System.Drawing.Image)(resources.GetObject("menuHelp.Image")));
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(145, 22);
+            this.menuHelp.Tag = "HELP";
+            this.menuHelp.Text = "Help Content";
+            this.menuHelp.Click += new System.EventHandler(this.Menus_Click);
             // 
-            // columnHeaderDescription
+            // menuAbout
             // 
-            this.columnHeaderDescription.Text = "Description";
-            this.columnHeaderDescription.Width = 162;
-            // 
-            // columnHeaderUsername
-            // 
-            this.columnHeaderUsername.DisplayIndex = 3;
-            this.columnHeaderUsername.Text = "Username";
-            this.columnHeaderUsername.Width = 89;
-            // 
-            // columnHeaderPassword
-            // 
-            this.columnHeaderPassword.DisplayIndex = 2;
-            this.columnHeaderPassword.Text = "Password";
-            this.columnHeaderPassword.Width = 123;
-            // 
-            // imgListNos
-            // 
-            this.imgListNos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListNos.ImageStream")));
-            this.imgListNos.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgListNos.Images.SetKeyName(0, "notification-counter-01.png");
-            this.imgListNos.Images.SetKeyName(1, "notification-counter-02.png");
-            this.imgListNos.Images.SetKeyName(2, "notification-counter-03.png");
-            this.imgListNos.Images.SetKeyName(3, "notification-counter-04.png");
-            this.imgListNos.Images.SetKeyName(4, "notification-counter-05.png");
-            this.imgListNos.Images.SetKeyName(5, "notification-counter-06.png");
-            this.imgListNos.Images.SetKeyName(6, "notification-counter-07.png");
-            this.imgListNos.Images.SetKeyName(7, "notification-counter-08.png");
-            this.imgListNos.Images.SetKeyName(8, "notification-counter-09.png");
-            this.imgListNos.Images.SetKeyName(9, "notification-counter-10.png");
-            this.imgListNos.Images.SetKeyName(10, "notification-counter-11.png");
-            this.imgListNos.Images.SetKeyName(11, "notification-counter-12.png");
-            this.imgListNos.Images.SetKeyName(12, "notification-counter-13.png");
-            this.imgListNos.Images.SetKeyName(13, "notification-counter-14.png");
-            this.imgListNos.Images.SetKeyName(14, "notification-counter-15.png");
-            this.imgListNos.Images.SetKeyName(15, "notification-counter-16.png");
-            this.imgListNos.Images.SetKeyName(16, "notification-counter-17.png");
-            this.imgListNos.Images.SetKeyName(17, "notification-counter-18.png");
-            this.imgListNos.Images.SetKeyName(18, "notification-counter-19.png");
-            this.imgListNos.Images.SetKeyName(19, "notification-counter-20.png");
-            this.imgListNos.Images.SetKeyName(20, "notification-counter-20-plus.png");
-            this.imgListNos.Images.SetKeyName(21, "notification-counter-42.png");
-            // 
-            // splitContainerPwd
-            // 
-            this.splitContainerPwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerPwd.Location = new System.Drawing.Point(0, 49);
-            this.splitContainerPwd.Name = "splitContainerPwd";
-            // 
-            // splitContainerPwd.Panel1
-            // 
-            this.splitContainerPwd.Panel1.Controls.Add(this.listViewPasswords);
-            // 
-            // splitContainerPwd.Panel2
-            // 
-            this.splitContainerPwd.Panel2.Controls.Add(this.btnCopyPassword);
-            this.splitContainerPwd.Panel2.Controls.Add(this.btnCopyUsername);
-            this.splitContainerPwd.Panel2.Controls.Add(this.label2);
-            this.splitContainerPwd.Panel2.Controls.Add(this.label5);
-            this.splitContainerPwd.Panel2.Controls.Add(this.label6);
-            this.splitContainerPwd.Panel2.Controls.Add(this.lblDescription);
-            this.splitContainerPwd.Panel2.Controls.Add(this.lblPassword);
-            this.splitContainerPwd.Panel2.Controls.Add(this.lblUsername);
-            this.splitContainerPwd.Panel2MinSize = 175;
-            this.splitContainerPwd.Size = new System.Drawing.Size(621, 256);
-            this.splitContainerPwd.SplitterDistance = 441;
-            this.splitContainerPwd.TabIndex = 4;
-            // 
-            // btnCopyPassword
-            // 
-            this.btnCopyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopyPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyPassword.FlatAppearance.BorderSize = 0;
-            this.btnCopyPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyPassword.Image")));
-            this.btnCopyPassword.Location = new System.Drawing.Point(144, 64);
-            this.btnCopyPassword.Name = "btnCopyPassword";
-            this.btnCopyPassword.Size = new System.Drawing.Size(21, 21);
-            this.btnCopyPassword.TabIndex = 11;
-            this.btnCopyPassword.Tag = "COPY_PWD";
-            this.btnCopyPassword.UseVisualStyleBackColor = true;
-            this.btnCopyPassword.Click += new System.EventHandler(this.Buttons_Click);
-            // 
-            // btnCopyUsername
-            // 
-            this.btnCopyUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopyUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyUsername.FlatAppearance.BorderSize = 0;
-            this.btnCopyUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyUsername.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyUsername.Image")));
-            this.btnCopyUsername.Location = new System.Drawing.Point(144, 11);
-            this.btnCopyUsername.Name = "btnCopyUsername";
-            this.btnCopyUsername.Size = new System.Drawing.Size(21, 21);
-            this.btnCopyUsername.TabIndex = 10;
-            this.btnCopyUsername.Tag = "COPY_USER";
-            this.btnCopyUsername.UseVisualStyleBackColor = true;
-            this.btnCopyUsername.Click += new System.EventHandler(this.Buttons_Click);
-            // 
-            // label2
-            // 
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(6, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 19);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Username:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(6, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Description:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(6, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 19);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Password:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDescription.AutoEllipsis = true;
-            this.lblDescription.Location = new System.Drawing.Point(28, 150);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(134, 52);
-            this.lblDescription.TabIndex = 5;
-            this.lblDescription.Text = "---";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPassword.AutoEllipsis = true;
-            this.lblPassword.Location = new System.Drawing.Point(28, 93);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(136, 22);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "***";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoEllipsis = true;
-            this.lblUsername.Location = new System.Drawing.Point(28, 32);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(136, 22);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "...";
-            // 
-            // tmr
-            // 
-            this.tmr.Enabled = true;
-            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
+            this.menuAbout.Image = ((System.Drawing.Image)(resources.GetObject("menuAbout.Image")));
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(145, 22);
+            this.menuAbout.Tag = "ABOUT";
+            this.menuAbout.Text = "About";
+            this.menuAbout.Click += new System.EventHandler(this.Menus_Click);
             // 
             // PasswordForm
             // 
