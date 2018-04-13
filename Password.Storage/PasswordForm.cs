@@ -42,12 +42,21 @@ namespace Password.Storage {
                     InitializePasswords();
                     break;
                 case "SETTINGS":
+                    using(OptionForm opt = new OptionForm()) {
+                        if(opt.ShowDialog().Equals(DialogResult.OK)) {
+
+                        }
+                    }
                     break;
                 case "HELP":
                     break;
                 case "EXIT":
+                    Close();
                     break;
                 case "ABOUT":
+                    using(AboutForm a = new AboutForm()) {
+                        a.ShowDialog();
+                    }
                     break;
                 default:
                     break;
@@ -72,6 +81,17 @@ namespace Password.Storage {
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            if(e.CloseReason.Equals(CloseReason.UserClosing)) {
+                if(MessageBox.Show(Messages.EXIT, "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.No)) {
+                    e.Cancel = true;
+                } else {
+                    //@---TODO---
+                }
+            }
+            base.OnFormClosing(e);
+        }
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e) {
             try {
 
