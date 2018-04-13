@@ -93,12 +93,11 @@ namespace Password.Storage.Controllers {
             sqlite.Delete(defaultTable, string.Format("Code ='{0}'", code));
         }
         public void Initialize(ListView list) {
-           
             List<Credential> pwds = GetPasswords();
             if(pwds.Count > 0) {
                 foreach(Credential c in pwds) {
-                    int img = 1;
-                    ListViewItem item = new ListViewItem(c.ID.ToSafeString(), img);
+                    string imgKey = string.Format("notification-counter-{0}.png", c.ID.ToString("D2"));
+                    ListViewItem item = new ListViewItem("", imgKey);
                     item.UseItemStyleForSubItems = false;
                     item.SubItems.Add(c.Description);
                     item.SubItems.Add(c.Username);
