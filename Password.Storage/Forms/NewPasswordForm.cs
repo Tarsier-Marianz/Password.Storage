@@ -1,5 +1,6 @@
 ﻿using Password.Storage.Controllers;
 using Password.Storage.Models;
+using Password.Storage.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,9 +22,11 @@ namespace Password.Storage.Forms {
             if(string.IsNullOrEmpty(id)) {
                 Text = "Add Credential";
                 btnSave.Text = "Save";
+                btnSave.Image = Resources.save;
             } else {
                 Text = "Edit Credential";
                 btnSave.Text = "Update";
+                btnSave.Image = Resources.update;
                 _cred = credential;
                 Credential c = _cred.GetCredential(id);
                 txtUsername.Text = c.Username;
