@@ -1,6 +1,7 @@
 ﻿using Password.Storage.Constant;
 using Password.Storage.Controllers;
 using Password.Storage.Forms;
+using Password.Storage.Helpers;
 using Password.Storage.Properties;
 using System;
 using System.Drawing;
@@ -9,6 +10,8 @@ using Tarsier.Regedit;
 
 namespace Password.Storage {
     public partial class PasswordForm : Form {
+        private AppVersions _appVersion = new AppVersions();
+        private AppInfo _appInfo = new AppInfo();
         private Credentials _pwds;
         private Image lockImg = Resources._lock;
         private string _selectedId = string.Empty;
@@ -178,6 +181,7 @@ namespace Password.Storage {
         }
 
         private void PasswordForm_Load(object sender, EventArgs e) {
+            _appVersion.WriteVersion("version.txt", _appInfo.AssemblyVersion);
             InitializeSettings();
             InitializePasswords();
         }
