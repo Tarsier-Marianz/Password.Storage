@@ -40,6 +40,14 @@ namespace Password.Storage {
             menuHidePwd.Checked = _hidePassword;
             toolStripPwd.Visible = menuToolbar.Checked = RegConfig.Get<bool>("Toolbar");
             statusStripPwd.Visible = menuStatus.Checked = RegConfig.Get<bool>("Statusbar");
+            menuXPLook.Checked = RegConfig.Get<bool>("XPLook");
+            if(menuXPLook.Checked) {
+                menuStrip1.RenderMode = ToolStripRenderMode.System;
+                toolStripPwd.RenderMode = ToolStripRenderMode.System;
+            }else {
+                menuStrip1.RenderMode = ToolStripRenderMode.Professional;
+                toolStripPwd.RenderMode = ToolStripRenderMode.Professional;
+            }
         }
         private void Action(string tag) {
             switch(tag) {
@@ -126,6 +134,10 @@ namespace Password.Storage {
                 case "STATUS":
                     RegConfig.Set<bool>("Statusbar", menuStatus.Checked);
                     statusStripPwd.Visible = menuStatus.Checked;
+                    break;
+                case "XPLOOK":
+                    RegConfig.Set<bool>("XPLook", menuXPLook.Checked);
+                    Application.Restart();
                     break;
                 default:
                     break;
@@ -228,5 +240,7 @@ namespace Password.Storage {
         private void listViewPasswords_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e) {
             e.DrawDefault = true;
         }
+
+      
     }
 }

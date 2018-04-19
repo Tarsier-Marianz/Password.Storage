@@ -27,16 +27,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHidePwd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuToolbar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStatus = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuXPLook = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPwd = new System.Windows.Forms.ToolStrip();
+            this.btnAdd = new System.Windows.Forms.ToolStripButton();
+            this.btnRemove = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnCopy = new System.Windows.Forms.ToolStripButton();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.btnHelp = new System.Windows.Forms.ToolStripButton();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.statusStripPwd = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.listViewPasswords = new System.Windows.Forms.ListView();
@@ -46,30 +62,16 @@
             this.columnHeaderPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imgListNos = new System.Windows.Forms.ImageList(this.components);
             this.splitContainerPwd = new System.Windows.Forms.SplitContainer();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.tmr = new System.Windows.Forms.Timer(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnCopyPassword = new System.Windows.Forms.Button();
             this.btnCopyUsername = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.ToolStripButton();
-            this.btnRemove = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnCopy = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnClear = new System.Windows.Forms.ToolStripButton();
-            this.btnSettings = new System.Windows.Forms.ToolStripButton();
-            this.btnHelp = new System.Windows.Forms.ToolStripButton();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
-            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.tmr = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStripPwd.SuspendLayout();
             this.statusStripPwd.SuspendLayout();
@@ -87,6 +89,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(621, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -102,10 +105,37 @@
             this.passwordToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.passwordToolStripMenuItem.Text = "Credential";
             // 
+            // menuAdd
+            // 
+            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.Size = new System.Drawing.Size(101, 22);
+            this.menuAdd.Tag = "ADD";
+            this.menuAdd.Text = "Add";
+            this.menuAdd.Click += new System.EventHandler(this.Menus_Click);
+            // 
+            // menuClear
+            // 
+            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
+            this.menuClear.Name = "menuClear";
+            this.menuClear.Size = new System.Drawing.Size(101, 22);
+            this.menuClear.Tag = "CLEAR";
+            this.menuClear.Text = "Clear";
+            this.menuClear.Click += new System.EventHandler(this.Menus_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(98, 6);
+            // 
+            // menuExit
+            // 
+            this.menuExit.Image = ((System.Drawing.Image)(resources.GetObject("menuExit.Image")));
+            this.menuExit.Name = "menuExit";
+            this.menuExit.Size = new System.Drawing.Size(101, 22);
+            this.menuExit.Tag = "EXIT";
+            this.menuExit.Text = "Exit";
+            this.menuExit.Click += new System.EventHandler(this.Menus_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -113,7 +143,9 @@
             this.menuHidePwd,
             this.toolStripSeparator3,
             this.menuToolbar,
-            this.menuStatus});
+            this.menuStatus,
+            this.toolStripSeparator4,
+            this.menuXPLook});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -150,6 +182,20 @@
             this.menuStatus.Text = "Status";
             this.menuStatus.Click += new System.EventHandler(this.Menus_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menuXPLook
+            // 
+            this.menuXPLook.CheckOnClick = true;
+            this.menuXPLook.Name = "menuXPLook";
+            this.menuXPLook.Size = new System.Drawing.Size(152, 22);
+            this.menuXPLook.Tag = "XPLOOK";
+            this.menuXPLook.Text = "XP Look";
+            this.menuXPLook.Click += new System.EventHandler(this.Menus_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -158,6 +204,24 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // menuHelp
+            // 
+            this.menuHelp.Image = ((System.Drawing.Image)(resources.GetObject("menuHelp.Image")));
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(145, 22);
+            this.menuHelp.Tag = "HELP";
+            this.menuHelp.Text = "Help Content";
+            this.menuHelp.Click += new System.EventHandler(this.Menus_Click);
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.Image = ((System.Drawing.Image)(resources.GetObject("menuAbout.Image")));
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(145, 22);
+            this.menuAbout.Tag = "ABOUT";
+            this.menuAbout.Text = "About";
+            this.menuAbout.Click += new System.EventHandler(this.Menus_Click);
             // 
             // toolStripPwd
             // 
@@ -175,20 +239,141 @@
             this.btnExit});
             this.toolStripPwd.Location = new System.Drawing.Point(0, 24);
             this.toolStripPwd.Name = "toolStripPwd";
+            this.toolStripPwd.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStripPwd.Size = new System.Drawing.Size(621, 25);
             this.toolStripPwd.TabIndex = 1;
             this.toolStripPwd.Text = "toolStrip1";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(23, 22);
+            this.btnAdd.Tag = "ADD";
+            this.btnAdd.Text = "Add Credential";
+            this.btnAdd.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnAdd.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnAdd.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRemove.Enabled = false;
+            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+            this.btnRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(23, 22);
+            this.btnRemove.Tag = "REMOVE";
+            this.btnRemove.Text = "Remove selected credential";
+            this.btnRemove.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnRemove.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnRemove.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(23, 22);
+            this.btnEdit.Tag = "EDIT";
+            this.btnEdit.Text = "Edit selected credental";
+            this.btnEdit.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnEdit.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnEdit.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCopy.Enabled = false;
+            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
+            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(23, 22);
+            this.btnCopy.Tag = "COPY";
+            this.btnCopy.Text = "Copy selected credential";
+            this.btnCopy.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnCopy.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnCopy.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(23, 22);
+            this.btnRefresh.Tag = "RELOAD";
+            this.btnRefresh.Text = "Reload credentials";
+            this.btnRefresh.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnRefresh.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnClear
+            // 
+            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(23, 22);
+            this.btnClear.Tag = "CLEAR";
+            this.btnClear.Text = "Clear all credentials";
+            this.btnClear.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnClear.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnClear.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(23, 22);
+            this.btnSettings.Tag = "SETTINGS";
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnSettings.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnSettings.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(28, 22);
             this.toolStripLabel1.Text = "       ";
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
+            this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(23, 22);
+            this.btnHelp.Tag = "HELP";
+            this.btnHelp.Text = "Help";
+            this.btnHelp.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnHelp.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnHelp.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            // 
+            // btnExit
+            // 
+            this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(23, 22);
+            this.btnExit.Tag = "EXIT";
+            this.btnExit.Text = "Exit Application";
+            this.btnExit.Click += new System.EventHandler(this.Buttons_Click);
+            this.btnExit.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
+            this.btnExit.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
             // 
             // statusStripPwd
             // 
@@ -303,45 +488,6 @@
             this.splitContainerPwd.SplitterDistance = 441;
             this.splitContainerPwd.TabIndex = 4;
             // 
-            // lblDescription
-            // 
-            this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDescription.AutoEllipsis = true;
-            this.lblDescription.Location = new System.Drawing.Point(28, 150);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(134, 52);
-            this.lblDescription.TabIndex = 5;
-            this.lblDescription.Text = "---";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPassword.AutoEllipsis = true;
-            this.lblPassword.Location = new System.Drawing.Point(28, 93);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(136, 22);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "***";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoEllipsis = true;
-            this.lblUsername.Location = new System.Drawing.Point(28, 32);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(136, 22);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "...";
-            // 
-            // tmr
-            // 
-            this.tmr.Enabled = true;
-            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
-            // 
             // btnCopyPassword
             // 
             this.btnCopyPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -405,170 +551,44 @@
             this.label6.Text = "Password:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnAdd
+            // lblDescription
             // 
-            this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(23, 22);
-            this.btnAdd.Tag = "ADD";
-            this.btnAdd.Text = "Add Credential";
-            this.btnAdd.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnAdd.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnAdd.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDescription.AutoEllipsis = true;
+            this.lblDescription.Location = new System.Drawing.Point(28, 150);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(134, 52);
+            this.lblDescription.TabIndex = 5;
+            this.lblDescription.Text = "---";
             // 
-            // btnRemove
+            // lblPassword
             // 
-            this.btnRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRemove.Enabled = false;
-            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
-            this.btnRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(23, 22);
-            this.btnRemove.Tag = "REMOVE";
-            this.btnRemove.Text = "Remove selected credential";
-            this.btnRemove.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnRemove.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnRemove.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPassword.AutoEllipsis = true;
+            this.lblPassword.Location = new System.Drawing.Point(28, 93);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(136, 22);
+            this.lblPassword.TabIndex = 3;
+            this.lblPassword.Text = "***";
             // 
-            // btnEdit
+            // lblUsername
             // 
-            this.btnEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(23, 22);
-            this.btnEdit.Tag = "EDIT";
-            this.btnEdit.Text = "Edit selected credental";
-            this.btnEdit.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnEdit.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnEdit.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoEllipsis = true;
+            this.lblUsername.Location = new System.Drawing.Point(28, 32);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(136, 22);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "...";
             // 
-            // btnCopy
+            // tmr
             // 
-            this.btnCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCopy.Enabled = false;
-            this.btnCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnCopy.Image")));
-            this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(23, 22);
-            this.btnCopy.Tag = "COPY";
-            this.btnCopy.Text = "Copy selected credential";
-            this.btnCopy.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnCopy.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnCopy.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(23, 22);
-            this.btnRefresh.Tag = "RELOAD";
-            this.btnRefresh.Text = "Reload credentials";
-            this.btnRefresh.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnRefresh.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnRefresh.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // btnClear
-            // 
-            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(23, 22);
-            this.btnClear.Tag = "CLEAR";
-            this.btnClear.Text = "Clear all credentials";
-            this.btnClear.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnClear.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnClear.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(23, 22);
-            this.btnSettings.Tag = "SETTINGS";
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnSettings.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnSettings.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
-            this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(23, 22);
-            this.btnHelp.Tag = "HELP";
-            this.btnHelp.Text = "Help";
-            this.btnHelp.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnHelp.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnHelp.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // btnExit
-            // 
-            this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(23, 22);
-            this.btnExit.Tag = "EXIT";
-            this.btnExit.Text = "Exit Application";
-            this.btnExit.Click += new System.EventHandler(this.Buttons_Click);
-            this.btnExit.MouseLeave += new System.EventHandler(this.Buttons_MouseLeave);
-            this.btnExit.MouseHover += new System.EventHandler(this.Buttons_MouseHover);
-            // 
-            // menuAdd
-            // 
-            this.menuAdd.Image = ((System.Drawing.Image)(resources.GetObject("menuAdd.Image")));
-            this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(101, 22);
-            this.menuAdd.Tag = "ADD";
-            this.menuAdd.Text = "Add";
-            this.menuAdd.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuClear
-            // 
-            this.menuClear.Image = ((System.Drawing.Image)(resources.GetObject("menuClear.Image")));
-            this.menuClear.Name = "menuClear";
-            this.menuClear.Size = new System.Drawing.Size(101, 22);
-            this.menuClear.Tag = "CLEAR";
-            this.menuClear.Text = "Clear";
-            this.menuClear.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuExit
-            // 
-            this.menuExit.Image = ((System.Drawing.Image)(resources.GetObject("menuExit.Image")));
-            this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(101, 22);
-            this.menuExit.Tag = "EXIT";
-            this.menuExit.Text = "Exit";
-            this.menuExit.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuHelp
-            // 
-            this.menuHelp.Image = ((System.Drawing.Image)(resources.GetObject("menuHelp.Image")));
-            this.menuHelp.Name = "menuHelp";
-            this.menuHelp.Size = new System.Drawing.Size(145, 22);
-            this.menuHelp.Tag = "HELP";
-            this.menuHelp.Text = "Help Content";
-            this.menuHelp.Click += new System.EventHandler(this.Menus_Click);
-            // 
-            // menuAbout
-            // 
-            this.menuAbout.Image = ((System.Drawing.Image)(resources.GetObject("menuAbout.Image")));
-            this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(145, 22);
-            this.menuAbout.Tag = "ABOUT";
-            this.menuAbout.Text = "About";
-            this.menuAbout.Click += new System.EventHandler(this.Menus_Click);
+            this.tmr.Enabled = true;
+            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
             // 
             // PasswordForm
             // 
@@ -648,6 +668,8 @@
         private System.Windows.Forms.Button btnCopyUsername;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnCopyPassword;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem menuXPLook;
     }
 }
 
